@@ -13,7 +13,9 @@
 		794CD49D1CC7B5620095EA47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794CD49B1CC7B5620095EA47 /* Main.storyboard */; };
 		794CD49F1CC7B5620095EA47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794CD49E1CC7B5620095EA47 /* Assets.xcassets */; };
 		794CD4A21CC7B5620095EA47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794CD4A01CC7B5620095EA47 /* LaunchScreen.storyboard */; };
-		794CD4AD1CC7B5620095EA47 /* sandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4AC1CC7B5620095EA47 /* sandboxTests.m */; };
+		794CD4C11CC7B6840095EA47 /* SandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4BE1CC7B6840095EA47 /* SandboxTests.m */; };
+		794CD4C21CC7B6840095EA47 /* DispatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4BF1CC7B6840095EA47 /* DispatchTests.m */; };
+		794CD4C31CC7B6840095EA47 /* KVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4C01CC7B6840095EA47 /* KVCTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,10 @@
 		794CD4A11CC7B5620095EA47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		794CD4A31CC7B5620095EA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794CD4A81CC7B5620095EA47 /* sandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		794CD4AC1CC7B5620095EA47 /* sandboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sandboxTests.m; sourceTree = "<group>"; };
 		794CD4AE1CC7B5620095EA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794CD4BE1CC7B6840095EA47 /* SandboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandboxTests.m; sourceTree = "<group>"; };
+		794CD4BF1CC7B6840095EA47 /* DispatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchTests.m; sourceTree = "<group>"; };
+		794CD4C01CC7B6840095EA47 /* KVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +109,20 @@
 		794CD4AB1CC7B5620095EA47 /* sandboxTests */ = {
 			isa = PBXGroup;
 			children = (
-				794CD4AC1CC7B5620095EA47 /* sandboxTests.m */,
+				794CD4B71CC7B60D0095EA47 /* Classes */,
 				794CD4AE1CC7B5620095EA47 /* Info.plist */,
 			);
 			path = sandboxTests;
+			sourceTree = "<group>";
+		};
+		794CD4B71CC7B60D0095EA47 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				794CD4BE1CC7B6840095EA47 /* SandboxTests.m */,
+				794CD4BF1CC7B6840095EA47 /* DispatchTests.m */,
+				794CD4C01CC7B6840095EA47 /* KVCTest.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +235,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				794CD4AD1CC7B5620095EA47 /* sandboxTests.m in Sources */,
+				794CD4C11CC7B6840095EA47 /* SandboxTests.m in Sources */,
+				794CD4C21CC7B6840095EA47 /* DispatchTests.m in Sources */,
+				794CD4C31CC7B6840095EA47 /* KVCTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +418,7 @@
 				794CD4B31CC7B5620095EA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		794CD4B41CC7B5620095EA47 /* Build configuration list for PBXNativeTarget "sandboxTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +427,7 @@
 				794CD4B61CC7B5620095EA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
