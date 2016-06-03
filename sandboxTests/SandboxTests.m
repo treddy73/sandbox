@@ -25,6 +25,11 @@
 
 @implementation SandboxTests
 
+-(void)testMKMapRectNull {
+    MKMapRect rect = MKMapRectNull;
+    NSLog(@"%f, %f   %f, %f", rect.origin.x, rect.origin.y, rect.size.height, rect.size.width);
+}
+
 -(void)testWeakWrapper {
     XCTestExpectation* expectation = [self expectationWithDescription:@"dictionary results"];
     
