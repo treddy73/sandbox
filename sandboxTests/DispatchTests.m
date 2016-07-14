@@ -8,6 +8,17 @@
 
 #import <XCTest/XCTest.h>
 
+@interface TRBlock : NSObject
+-(void)doSomethingWithCompletionBlock:(void (^)(int value))block;
+@end
+
+@implementation TRBlock
+-(void)doSomethingWithCompletionBlock:(void (^)(int value))block {
+    block(arc4random() % 15000);
+}
+
+@end
+
 @interface DispatchTests : XCTestCase {
     dispatch_queue_t _workQueue;
     dispatch_queue_t _readWriteQueue;
@@ -19,6 +30,13 @@
 @end
 
 @implementation DispatchTests
+
+-(void)testBlock {
+    TRBlock* trBlock = [[TRBlock alloc] init];
+    [trBlock doSomethingWithCompletionBlock:^(int value){
+        XCTAssertNotEqual(0, value);
+    }];
+}
 
 -(void)testDispatch {
     _workQueue = dispatch_queue_create("com.work", DISPATCH_QUEUE_CONCURRENT);
