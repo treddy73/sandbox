@@ -21,6 +21,7 @@
 
 @interface SandboxTests : XCTestCase
 -(int)normalize:(float)value;
+-(NSArray*)arrayLiteral;
 @end
 
 @implementation SandboxTests
@@ -37,7 +38,6 @@
     @autoreleasepool {
         for(int i = 0; i < 5; ++i) {
             Blah* blah = [[Blah alloc] init];
-//            [blah setWeakObject:[[NSString alloc] initWithFormat:@"%d", i]];
             [dictionary setObject:blah forKey:@(i)];
         }
         XCTAssertEqual(5, [dictionary count]);
@@ -166,12 +166,20 @@
     NSLog(@"NSData seconds:%.6f", [[NSDate date] timeIntervalSinceDate:startDate]);
 }
 
+-(void)testArrayLiteral {
+    XCTAssertNotEqual([self arrayLiteral], [self arrayLiteral]);
+}
+
 -(int)normalize:(float)value {
     int normalizedHeading = (int)(value * 10) % 3600;
     if(normalizedHeading < 0) {
         normalizedHeading += 3600;
     }
     return normalizedHeading;
+}
+
+-(NSArray*)arrayLiteral {
+    return @[@"one", @"two", @"three"];
 }
 
 @end
