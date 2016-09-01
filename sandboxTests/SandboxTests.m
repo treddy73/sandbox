@@ -170,6 +170,25 @@
     XCTAssertNotEqual([self arrayLiteral], [self arrayLiteral]);
 }
 
+-(void)testSignificantDigits {
+    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+    [formatter setUsesSignificantDigits:YES];
+    [formatter setMinimumSignificantDigits:3];
+    [formatter setMaximumSignificantDigits:15];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMinimumFractionDigits:0];
+    [formatter setMaximumFractionDigits:2];
+    [formatter setMultiplier:@(1.0)];
+    [formatter setZeroSymbol:@"0"];
+    [formatter setGroupingSeparator:[[NSLocale currentLocale] objectForKey:NSLocaleGroupingSeparator]];
+    [formatter setGroupingSize:3];
+    [formatter setUsesGroupingSeparator:YES];
+    double value = 0.001234567;
+    for (int i = 0; i < 10; i++) {
+        NSLog(@"%d - %@", i, [formatter stringFromNumber:@(value * pow(10, i))]);
+    }
+}
+
 -(int)normalize:(float)value {
     int normalizedHeading = (int)(value * 10) % 3600;
     if(normalizedHeading < 0) {
