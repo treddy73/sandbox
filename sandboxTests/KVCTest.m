@@ -28,9 +28,8 @@
 }
 @end
 
-@interface SimpleRecord : NSObject {
-    NSString* _string;
-}
+@interface SimpleRecord : NSObject
+@property (strong, nonatomic, readonly) NSString* string;
 @end
 
 @implementation SimpleRecord
@@ -76,6 +75,20 @@
     [records addObject:[[SimpleRecord alloc] initWithString:@"dude"]];
     [records addObject:[[SimpleRecord alloc] initWithString:@"dude2"]];
     [records addObject:[[SimpleRecord alloc] initWithString:@"dude"]];
+    NSSet* strings = [records valueForKeyPath:@"@distinctUnionOfObjects.string"];
+    NSLog(@"%@", strings);
+}
+
+-(void)testFilterNil {
+    NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary* bindings) {
+        return [evaluatedObject string] != nil;
+    }];
+    NSMutableSet* records = [[NSMutableSet alloc] init];
+    [records addObject:[[SimpleRecord alloc] initWithString:nil]];
+    [records addObject:[[SimpleRecord alloc] initWithString:@"dude"]];
+    [records addObject:[[SimpleRecord alloc] initWithString:@"dude2"]];
+    [records addObject:[[SimpleRecord alloc] initWithString:@"dude"]];
+    [records filterUsingPredicate:predicate];
     NSSet* strings = [records valueForKeyPath:@"@distinctUnionOfObjects.string"];
     NSLog(@"%@", strings);
 }
