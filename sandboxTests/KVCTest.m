@@ -28,8 +28,22 @@
 }
 @end
 
-@interface KVCTest : XCTestCase
+@interface SimpleRecord : NSObject {
+    NSString* _string;
+}
+@end
 
+@implementation SimpleRecord
+-(instancetype)initWithString:(NSString*)string {
+    self = [super init];
+    if (self) {
+        _string = string;
+    }
+    return self;
+}
+@end
+
+@interface KVCTest : XCTestCase
 @end
 
 @implementation KVCTest
@@ -53,6 +67,17 @@
     NSLog(@"******RESULT*****\n%d", (int)[finalRecord uniqueStringCount]);
 //    NSLog(@"****RESULT****\n%@", [array valueForKeyPath:@"@distinctUnionOfObjects.string"]);
 //    NSLog(@"****RESULT****\n%@", [[array valueForKeyPath:@"@distinctUnionOfObjects.string"] valueForKeyPath:@"@count"]);
+}
+
+-(void)testNil {
+    //NSSet is supposed to throw out nil values ... as of iOS 9.latest, it crashes with NSInvalidArgumentException
+    NSMutableSet* records = [[NSMutableSet alloc] init];
+    [records addObject:[[SimpleRecord alloc] initWithString:nil]];
+    [records addObject:[[SimpleRecord alloc] initWithString:@"dude"]];
+    [records addObject:[[SimpleRecord alloc] initWithString:@"dude2"]];
+    [records addObject:[[SimpleRecord alloc] initWithString:@"dude"]];
+    NSSet* strings = [records valueForKeyPath:@"@distinctUnionOfObjects.string"];
+    NSLog(@"%@", strings);
 }
 
 @end
