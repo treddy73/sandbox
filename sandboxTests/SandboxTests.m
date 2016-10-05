@@ -189,6 +189,19 @@
     }
 }
 
+-(void)testPredicate {
+    NSArray<NSString*>* strings = @[@"one", @"two", @"three", @"monkey", @"money"];
+    NSArray<NSString*>* expectedResults[2] = {@[@"one"], @[@"one", @"money"]};
+    NSArray<NSString*>* conditionals = @[@"=", @"contains[cd]"];
+    int i = 0;
+    for (NSString* condition in conditionals) {
+        NSString* predicateString = [NSString stringWithFormat:@"self %@ '%@'", condition, @"one"];
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:predicateString];
+        XCTAssertEqualObjects(expectedResults[i], [strings filteredArrayUsingPredicate:predicate]);
+        i++;
+    }
+}
+
 -(int)normalize:(float)value {
     int normalizedHeading = (int)(value * 10) % 3600;
     if(normalizedHeading < 0) {
