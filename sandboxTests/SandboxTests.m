@@ -11,11 +11,12 @@
 
 @interface Blah : NSObject
 @property (weak, readwrite, nonatomic) id weakObject;
+@property (strong, readwrite, nonatomic) NSDate* theDate;
 @end
 
 @implementation Blah
 -(NSString *)description {
-    return [[super description] stringByAppendingFormat:@" %@", _weakObject];
+    return [[super description] stringByAppendingFormat:@" %@ %@", _weakObject, _theDate];
 }
 @end
 
@@ -200,6 +201,36 @@
         XCTAssertEqualObjects(expectedResults[i], [strings filteredArrayUsingPredicate:predicate]);
         i++;
     }
+}
+
+-(void)testBlockPredicate {
+    NSArray<NSString*>* strings = @[@"one", @"two", @"three", @"monkey", @"money"];
+    NSArray<NSString*>* expectedResults = @[@"one"];
+    NSPredicate* blockPredicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary* bindings) {
+        if ([evaluatedObject isEqual:@"one"]) {
+            return YES;
+        }
+        return NO;
+    }];
+    NSArray* result = [strings filteredArrayUsingPredicate:blockPredicate];
+    XCTAssertEqualObjects(expectedResults, result);
+}
+
+-(void)testAnotherPredicate {
+    NSMutableArray* masterArray = [[NSMutableArray alloc] initWithCapacity:10];
+    for (int i = 1; i < 3; i++) {
+        NSMutableArray* dateArray = [[NSMutableArray alloc] initWithCapacity:10];
+        for (int j = 86400 * i; j < 86400 * i * 5; j += 86400) {
+            Blah* blah = [[Blah alloc] init];
+            [blah setTheDate:[NSDate dateWithTimeIntervalSince1970:j]];
+            [dateArray addObject:blah];
+        }
+        [masterArray addObject:dateArray];
+    }
+    NSArray* filtered = [masterArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"@min.theDate < %@", [NSDate dateWithTimeIntervalSince1970:86500]]];
+    NSLog(@"masterList: %@", masterArray);
+    NSLog(@"filteredList: %@", filtered);
+    XCTAssertEqualObjects(masterArray[0], filtered[0]);
 }
 
 -(int)normalize:(float)value {
