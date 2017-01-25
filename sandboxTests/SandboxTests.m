@@ -12,11 +12,12 @@
 @interface Blah : NSObject
 @property (weak, readwrite, nonatomic) id weakObject;
 @property (strong, readwrite, nonatomic) NSDate* theDate;
+@property (strong, readwrite, nonatomic) NSString* theString;
 @end
 
 @implementation Blah
 -(NSString *)description {
-    return [[super description] stringByAppendingFormat:@" %@ %@", _weakObject, _theDate];
+    return [[super description] stringByAppendingFormat:@" %@ %@ %@", _weakObject, _theDate, _theString];
 }
 @end
 
@@ -231,6 +232,14 @@
     NSLog(@"masterList: %@", masterArray);
     NSLog(@"filteredList: %@", filtered);
     XCTAssertEqualObjects(masterArray[0], filtered[0]);
+}
+
+-(void)testBeginsWithPredicate {
+    Blah* blah = [[Blah alloc] init];
+    [blah setTheString:nil];
+    NSArray* array = @[blah];
+    NSArray* result = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"theString beginswith %@", @"dude/yo"]];
+    XCTAssertEqual(0, [result count]);
 }
 
 -(int)normalize:(float)value {
