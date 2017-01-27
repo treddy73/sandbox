@@ -17,6 +17,8 @@
 		794CD4C21CC7B6840095EA47 /* DispatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4BF1CC7B6840095EA47 /* DispatchTests.m */; };
 		794CD4C31CC7B6840095EA47 /* KVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4C01CC7B6840095EA47 /* KVCTest.m */; };
 		799FDD2F1E390F0800CB3542 /* MoreSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 799FDD2E1E390F0800CB3542 /* MoreSandboxTests.m */; };
+		799FDD351E3BDB5600CB3542 /* ObjectBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 799FDD341E3BDB5600CB3542 /* ObjectBundle.m */; };
+		799FDD371E3BEA8A00CB3542 /* ObjectBundleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 799FDD361E3BEA8A00CB3542 /* ObjectBundleTest.m */; };
 		79B6EB181D0710FC00E20B09 /* InitializeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B6EB171D0710FC00E20B09 /* InitializeTest.m */; };
 		79DD8B331CCFA16600623F02 /* PThreadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DD8B321CCFA16600623F02 /* PThreadTest.m */; };
 		79ED53951D3433A10082CAF7 /* FileSizeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79ED53941D3433A10082CAF7 /* FileSizeTest.m */; };
@@ -49,6 +51,9 @@
 		794CD4BF1CC7B6840095EA47 /* DispatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchTests.m; sourceTree = "<group>"; };
 		794CD4C01CC7B6840095EA47 /* KVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCTest.m; sourceTree = "<group>"; };
 		799FDD2E1E390F0800CB3542 /* MoreSandboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSandboxTests.m; sourceTree = "<group>"; };
+		799FDD331E3BDB5600CB3542 /* ObjectBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBundle.h; sourceTree = "<group>"; };
+		799FDD341E3BDB5600CB3542 /* ObjectBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBundle.m; sourceTree = "<group>"; };
+		799FDD361E3BEA8A00CB3542 /* ObjectBundleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBundleTest.m; sourceTree = "<group>"; };
 		79B6EB171D0710FC00E20B09 /* InitializeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitializeTest.m; sourceTree = "<group>"; };
 		79DD8B321CCFA16600623F02 /* PThreadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PThreadTest.m; sourceTree = "<group>"; };
 		79ED53941D3433A10082CAF7 /* FileSizeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSizeTest.m; sourceTree = "<group>"; };
@@ -102,6 +107,8 @@
 				794CD4A01CC7B5620095EA47 /* LaunchScreen.storyboard */,
 				794CD4A31CC7B5620095EA47 /* Info.plist */,
 				794CD4921CC7B5620095EA47 /* Supporting Files */,
+				799FDD331E3BDB5600CB3542 /* ObjectBundle.h */,
+				799FDD341E3BDB5600CB3542 /* ObjectBundle.m */,
 			);
 			path = sandbox;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 				79B6EB171D0710FC00E20B09 /* InitializeTest.m */,
 				79ED53941D3433A10082CAF7 /* FileSizeTest.m */,
 				799FDD2E1E390F0800CB3542 /* MoreSandboxTests.m */,
+				799FDD361E3BEA8A00CB3542 /* ObjectBundleTest.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			files = (
 				794CD49A1CC7B5620095EA47 /* ViewController.m in Sources */,
 				794CD4971CC7B5620095EA47 /* AppDelegate.m in Sources */,
+				799FDD351E3BDB5600CB3542 /* ObjectBundle.m in Sources */,
 				794CD4941CC7B5620095EA47 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +263,7 @@
 				794CD4C21CC7B6840095EA47 /* DispatchTests.m in Sources */,
 				79ED53951D3433A10082CAF7 /* FileSizeTest.m in Sources */,
 				794CD4C31CC7B6840095EA47 /* KVCTest.m in Sources */,
+				799FDD371E3BEA8A00CB3542 /* ObjectBundleTest.m in Sources */,
 				799FDD2F1E390F0800CB3542 /* MoreSandboxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
