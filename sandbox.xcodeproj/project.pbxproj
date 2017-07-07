@@ -16,6 +16,7 @@
 		794CD4C11CC7B6840095EA47 /* SandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4BE1CC7B6840095EA47 /* SandboxTests.m */; };
 		794CD4C21CC7B6840095EA47 /* DispatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4BF1CC7B6840095EA47 /* DispatchTests.m */; };
 		794CD4C31CC7B6840095EA47 /* KVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 794CD4C01CC7B6840095EA47 /* KVCTest.m */; };
+		7951A6EC1F101E48007B0B9A /* FVTableAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7951A6EB1F101E48007B0B9A /* FVTableAlertController.m */; };
 		799FDD2F1E390F0800CB3542 /* MoreSandboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 799FDD2E1E390F0800CB3542 /* MoreSandboxTests.m */; };
 		799FDD351E3BDB5600CB3542 /* ObjectBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 799FDD341E3BDB5600CB3542 /* ObjectBundle.m */; };
 		799FDD371E3BEA8A00CB3542 /* ObjectBundleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 799FDD361E3BEA8A00CB3542 /* ObjectBundleTest.m */; };
@@ -50,6 +51,8 @@
 		794CD4BE1CC7B6840095EA47 /* SandboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandboxTests.m; sourceTree = "<group>"; };
 		794CD4BF1CC7B6840095EA47 /* DispatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchTests.m; sourceTree = "<group>"; };
 		794CD4C01CC7B6840095EA47 /* KVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCTest.m; sourceTree = "<group>"; };
+		7951A6EA1F101E48007B0B9A /* FVTableAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVTableAlertController.h; sourceTree = "<group>"; };
+		7951A6EB1F101E48007B0B9A /* FVTableAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVTableAlertController.m; sourceTree = "<group>"; };
 		799FDD2E1E390F0800CB3542 /* MoreSandboxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSandboxTests.m; sourceTree = "<group>"; };
 		799FDD331E3BDB5600CB3542 /* ObjectBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBundle.h; sourceTree = "<group>"; };
 		799FDD341E3BDB5600CB3542 /* ObjectBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBundle.m; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				794CD4921CC7B5620095EA47 /* Supporting Files */,
 				799FDD331E3BDB5600CB3542 /* ObjectBundle.h */,
 				799FDD341E3BDB5600CB3542 /* ObjectBundle.m */,
+				7951A6EA1F101E48007B0B9A /* FVTableAlertController.h */,
+				7951A6EB1F101E48007B0B9A /* FVTableAlertController.m */,
 			);
 			path = sandbox;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			files = (
 				794CD49A1CC7B5620095EA47 /* ViewController.m in Sources */,
 				794CD4971CC7B5620095EA47 /* AppDelegate.m in Sources */,
+				7951A6EC1F101E48007B0B9A /* FVTableAlertController.m in Sources */,
 				799FDD351E3BDB5600CB3542 /* ObjectBundle.m in Sources */,
 				794CD4941CC7B5620095EA47 /* main.m in Sources */,
 			);

@@ -8,14 +8,17 @@
 
 #import "ViewController.h"
 #import "objc/runtime.h"
+#import "FVTableAlertController.h"
 
-@interface ViewController () {
+@interface ViewController () <UITableViewDataSource> {
     UIView* _signalStrengthView;
     UIView* _serviceItemView;
     __weak IBOutlet UILabel* _signalStrengthLabel;
     __weak IBOutlet UILabel *_serviceLabel;
+    FVTableAlertController* _tableAlertController;
 }
 -(void)refreshSignalStrength;
+-(void)showAlertTable;
 @end
 
 @implementation ViewController
@@ -38,6 +41,11 @@
     [self refreshSignalStrength];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self showAlertTable];
+}
+
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -49,6 +57,30 @@
         [_serviceLabel setText:[_serviceItemView valueForKey:@"serviceString"]];
         [self refreshSignalStrength];
     });
+}
+
+-(void)showAlertTable {
+    UITableViewController* tableViewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+    [[tableViewController tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [[tableViewController tableView] setDataSource:self];
+    [tableViewController setPreferredContentSize:CGSizeMake(350, 300)];
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Title" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    _tableAlertController = [[FVTableAlertController alloc] initWithAlertController:alertController tableViewController:tableViewController];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark UITableViewDataSourceDelegate methods
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    [[cell textLabel] setText:[NSString stringWithFormat:@"Cell #%d", (int)[indexPath row]]];
+    return cell;
 }
 
 @end
